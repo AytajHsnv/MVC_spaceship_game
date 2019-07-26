@@ -1,0 +1,34 @@
+body{
+	background: #212733;
+	margin: 0px;
+	padding: 0px;
+	font-family: Verdana;
+}
+#game_area{
+	width: 1000px;
+	margin: auto;
+	padding: 0px;
+	position: relative;
+	background: url("bg.png") no-repeat;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+td{
+	border: 1px solid white;
+	width: 118px;
+	height: 118px;
+}
+#message{
+	height: 50px;
+	color: white;
+	font-size: 30px;
+}
+.full{
+	background: url("ship-red.png") repeat center;
+}
+.empty{
+	background: url("asteroid.png") repeat center ;
+}
