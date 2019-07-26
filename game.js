@@ -24,16 +24,18 @@
 			let situat = model.checkPlace(id)[0];
 			let SituatOfShips = model.checkPlace(id)[1];
 			view.changeColor(id,situat);
-			if(SituatOfShips){
+			if(situat && SituatOfShips){
 				model.sizeShip--;
 				if(model.sizeShip > 0){
 					view.showMessage("Destroyed whole ship and remained " + model.sizeShip);
 				}
-				else if(model.sizeShip == 0)
-					view.showMessage("You are hero");
-				else
-					view.showMessage("You quited the game");
+				else if(model.sizeShip == 0){
+					view.showMessage("You are hero and you quited the game");}
+				
+					
 			}
+			
+			
 		}
 	};
 
@@ -73,7 +75,13 @@
 					return true;
 				}
 				return false;	
-			}
+		},
+		creatingRandomPos: function(){
+			var arr = [];
+				var r = Math.floor(Math.random()*88);
+				if(arr.indexOf(r) === -1) arr.push(r);
+			return arr[r];
+		}
 				
 	};
 
@@ -98,8 +106,15 @@
 				document.querySelector("#message").innerHTML = "Start";
 			},
 			event: function(){
+				let counter = {};
 				document.querySelectorAll('#game td').forEach(e => e.addEventListener("click", function() {
-					controller.fireEle(this.id);
+					if(this.className){
+						document.querySelector("#message").innerHTML = "You've already destroyed this place";
+					}
+					else{
+						controller.fireEle(this.id);
+					}
+					
 				}));
 			}
 		}
